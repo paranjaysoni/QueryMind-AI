@@ -12,9 +12,12 @@ GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 LANGCHAIN_API_KEY = st.secrets.get("LANGCHAIN_API_KEY") or os.getenv("LANGCHAIN_API_KEY")
 
 # LangSmith Tracking
-os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY if LANGCHAIN_API_KEY else ""
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "GenAI Chatbot Deployment"
+# LangSmith Tracking
+if LANGCHAIN_API_KEY:
+    os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_PROJECT"] = "Project1-GenAIChatbot"
+    os.environ["LANGSMITH_PROJECT"] = "Project1-GenAIChatbot"
 
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.7)
 
