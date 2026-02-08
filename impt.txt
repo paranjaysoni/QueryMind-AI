@@ -1,2 +1,0 @@
-conda create -p venv python==3.10 -y  --->  Create conda Environment
-conda activate "/Users/paranjaysoni/Coding/GenAI - Projects/1. Chatbot/Mine/venv"  --> Activate venv
